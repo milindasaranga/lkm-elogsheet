@@ -2,7 +2,7 @@ package com.lkm.elogsheet.models;
 
 import java.util.List;
 
-public class BaseModel {
+public class ModelBase {
 
     public String getDocId() {
         return docId;

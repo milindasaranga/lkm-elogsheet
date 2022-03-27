@@ -3,6 +3,7 @@ package com.lkm.elogsheet.services;
 import android.content.Context;
 
 import com.lkm.elogsheet.dao.ELogsheetLiteDB;
+import com.lkm.elogsheet.models.ModelBase;
 
 public class DBService {
 
@@ -21,5 +22,8 @@ public class DBService {
         eLogsheetDB.initializeDB(context);
     }
 
+    public void write(ModelBase doc){
+        eLogsheetDB.write(doc);
+    }
 
 }

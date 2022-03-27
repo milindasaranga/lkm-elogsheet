@@ -1,10 +1,12 @@
 package com.lkm.elogsheet.dao;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.couchbase.lite.CouchbaseLiteException;
 import com.couchbase.lite.Database;
 import com.couchbase.lite.DatabaseConfiguration;
+import com.couchbase.lite.Dictionary;
 import com.couchbase.lite.ReplicatorChange;
 import com.couchbase.lite.ReplicatorConfiguration;
 import com.couchbase.lite.Replicator;
@@ -17,6 +19,12 @@ import com.couchbase.lite.CouchbaseLite;
 import com.couchbase.lite.ResultSet;
 import com.couchbase.lite.SelectResult;
 import com.couchbase.lite.URLEndpoint;
+import com.google.gson.Gson;
+import com.lkm.elogsheet.models.ModelBase;
+
+import org.json.JSONObject;
+
+import java.util.Map;
 
 
 public class ELogsheetLiteDB {
@@ -32,6 +40,10 @@ public class ELogsheetLiteDB {
         return instance;
     }
 
+    public Database getDBInstance(){
+        return database;
+    }
+
     public void initializeDB(Context cntx){
         CouchbaseLite.init(cntx);
         DatabaseConfiguration config = new DatabaseConfiguration();
@@ -41,6 +53,25 @@ public class ELogsheetLiteDB {
         } catch (CouchbaseLiteException e) {
             e.printStackTrace();
         }
+    }
+
+    public void write(ModelBase doc){
+        try{
+            Document dbDoc= database.getDocument(doc.docId);
+            Gson gson = new Gson();
+            MutableDocument mDBDoc;
+
+            mDBDoc = dbDoc==null? new MutableDocument(): dbDoc.toMutable();
+            mDBDoc.setJSON(gson.toJson(doc));
+            database.save(mDBDoc);
+        }catch (Exception e){
+            Log.e("write",e.toString());
+        }
+    }
+
+    public void getDocumentById(String docId){
+        Document doc= database.getDocument(docId);
+        doc.toJSON();
     }
 
 }
