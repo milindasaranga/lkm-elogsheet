@@ -23,9 +23,7 @@ public class ELogsheetLiteDB {
 
     private static final String DB_NAME = "lkm-elogsheet-db";
     private static ELogsheetLiteDB instance=null;
-
-    private String TAG = "CBL-GS";
-    private ELogsheetLiteDB cntx = this;
+    private Database database = null;
 
     public static ELogsheetLiteDB getInstance(){
         if (instance == null) {
@@ -34,19 +32,15 @@ public class ELogsheetLiteDB {
         return instance;
     }
 
-    public void InitlializeDB(Context cntx){
+    public void initializeDB(Context cntx){
         CouchbaseLite.init(cntx);
+        DatabaseConfiguration config = new DatabaseConfiguration();
+
+        try {
+            database = new Database(DB_NAME, config);
+        } catch (CouchbaseLiteException e) {
+            e.printStackTrace();
+        }
     }
 
-//    private static final String DB_NAME = "epsiyan-fb-db";
-//    private static final int DB_VERSION = 1;
-//
-//    public FBSQLLiteDB(Context context) {
-//        super(context, DB_NAME, null, DB_VERSION);
-//    }
-//
-//    @Override
-//    public void onCreate(SQLiteDatabase db) {
-//        updateDatabase(db, 0, DB_VERSION);
-//    }
 }
