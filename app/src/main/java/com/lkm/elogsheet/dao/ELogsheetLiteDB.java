@@ -24,6 +24,7 @@ import com.lkm.elogsheet.models.ModelBase;
 
 import org.json.JSONObject;
 
+import java.util.Date;
 import java.util.Map;
 
 
@@ -57,21 +58,26 @@ public class ELogsheetLiteDB {
 
     public void write(ModelBase doc){
         try{
-            Document dbDoc= database.getDocument(doc.docId);
+            Document dbDoc= database.getDocument(doc.id);
             Gson gson = new Gson();
             MutableDocument mDBDoc;
 
-            mDBDoc = dbDoc==null? new MutableDocument(): dbDoc.toMutable();
-            mDBDoc.setJSON(gson.toJson(doc));
+            mDBDoc = dbDoc==null? new MutableDocument(doc.id): dbDoc.toMutable();
+            JSONObject mJSONObject = new JSONObject(gson.toJson(doc));
+            mJSONObject.remove("_id");
+            mJSONObject.remove("_rev");
+
+            mDBDoc.setJSON(mJSONObject.toString());
             database.save(mDBDoc);
+
         }catch (Exception e){
             Log.e("write",e.toString());
         }
     }
 
-    public void getDocumentById(String docId){
+    public String getDocumentById(String docId){
         Document doc= database.getDocument(docId);
-        doc.toJSON();
+        return doc==null?null: doc.toJSON();
     }
 
 }

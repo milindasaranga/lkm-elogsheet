@@ -23,9 +23,10 @@ public class LoginActivity extends AppCompatActivity {
         dbService.initCouchbaseLite(context);
 
         User userDoc= new User();
-        userDoc.userId="21004209";
-        userDoc.setDocId("USER_"+userDoc.getUserId());
+        userDoc.userId="21004208";
+        userDoc.setId("USER_"+userDoc.getUserId());
 
+        dbService.get(userDoc.id);
         dbService.write(userDoc);
 
         ReplicationService replService=new ReplicationService();

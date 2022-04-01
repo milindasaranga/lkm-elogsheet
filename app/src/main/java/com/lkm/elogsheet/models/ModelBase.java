@@ -1,23 +1,25 @@
 package com.lkm.elogsheet.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class ModelBase {
 
-    public String getDocId() {
-        return docId;
+    public String getId() {
+        return id;
     }
 
-    public void setDocId(String docId) {
-        this.docId = docId;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getDocRev() {
-        return docRev;
+    public String getRev() {
+        return rev;
     }
 
-    public void setDocRev(String docRev) {
-        this.docRev = docRev;
+    public void setRev(String rev) {
+        this.rev = rev;
     }
 
     public List<String> getChannels() {
@@ -36,9 +38,14 @@ public class ModelBase {
         this.audit = audit;
     }
 
-    public String docId;
-    public String docRev;
+    @SerializedName("_id")
+    public String id;
+
+    @SerializedName("_rev")
+    public String rev;
+
     public List<String> channels;
+
     public Audit audit;
 
 }

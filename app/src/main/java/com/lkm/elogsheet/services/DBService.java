@@ -26,4 +26,8 @@ public class DBService {
         eLogsheetDB.write(doc);
     }
 
+    public void get(String docId){
+        eLogsheetDB.getDocumentById(docId);
+    }
+
 }
