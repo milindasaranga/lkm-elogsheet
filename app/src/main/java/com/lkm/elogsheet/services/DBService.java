@@ -2,8 +2,12 @@ package com.lkm.elogsheet.services;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
 import com.lkm.elogsheet.dao.ELogsheetLiteDB;
 import com.lkm.elogsheet.models.ModelBase;
+import com.lkm.elogsheet.models.User;
+
+import java.lang.reflect.Type;
 
 public class DBService {
 
@@ -28,6 +32,12 @@ public class DBService {
 
     public String get(String docId){
         return eLogsheetDB.getDocumentById(docId);
+    }
+
+    public ModelBase get(String docId, Class<?> cls){
+        String json = eLogsheetDB.getDocumentById(docId);
+        ModelBase baseDoc = new Gson().fromJson(json, (Type) cls);
+        return baseDoc;
     }
 
 }

@@ -5,10 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +15,7 @@ import android.widget.Toast;
 import com.lkm.elogsheet.R;
 import com.lkm.elogsheet.common.CommonUtil;
 import com.lkm.elogsheet.common.Constants;
+import com.lkm.elogsheet.models.User;
 import com.lkm.elogsheet.services.DBService;
 import com.lkm.elogsheet.services.ReplicationService;
 
@@ -30,10 +27,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText inputPassword;
     private TextView txtLoginError;
     private boolean isValid;
-    private SQLiteOpenHelper databaseHelper;
-    private SQLiteDatabase db;
-    private int accountID;
-    private int clientID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,22 +71,16 @@ public class LoginActivity extends AppCompatActivity {
 
             if (isValid) {
 
-                //cursor = FBSQLLiteDB.login(db, filteredEmail, filteredPassword);
-                String userDoc=DBService.getInstance().get("USER_"+ userId);
+                User userDoc= (User) DBService.getInstance().get("USER_"+ userId, User.class);
 
                 if (userDoc != null) {
-                    //cursor.moveToFirst();
 
-                    String email = "";//cursor.getString(1);
-                    clientID = 1;//cursor.getInt(3);
-
-                    //Toast.makeText(getApplicationContext(), "client id " + String.valueOf(clientID), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "You have been logged in  successfully " + userDoc.getUserId(), Toast.LENGTH_SHORT).show();
 
                     sharedPreferences = getSharedPreferences(Constants.MY_PREFERENCES, Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                    editor.putInt(Constants.CLIENT_ID, clientID);
-                    editor.putString(Constants.EMAIL, email);
+                    editor.putString(Constants.CLIENT_ID, userDoc.getUserId());
                     editor.putBoolean(Constants.LOGIN_STATUS, true);
 
                     editor.commit();
@@ -103,13 +90,12 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
 
                 } else {
-
-                    txtLoginError.setText("Invalid email or password");
+                    txtLoginError.setText("Invalid user id or password");
                 }
             }
 
-        } catch (SQLiteException ex) {
-            Toast.makeText(getApplicationContext(), "Database unavailable", Toast.LENGTH_SHORT).show();
+        } catch (Exception ex) {
+            Toast.makeText(getApplicationContext(), "Error occurred while logged in", Toast.LENGTH_SHORT).show();
         }
     }
 
