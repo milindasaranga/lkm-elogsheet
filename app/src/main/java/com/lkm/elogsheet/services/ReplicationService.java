@@ -30,7 +30,7 @@ public class ReplicationService {
         return instance;
     }
 
-    public void StartReplication(){
+    public void startReplication(){
         URI uri = null;
         try {
             uri = new URI(Constants.sync_gateway_url);

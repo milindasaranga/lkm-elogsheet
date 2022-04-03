@@ -13,11 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lkm.elogsheet.R;
-import com.lkm.elogsheet.common.CommonUtil;
-import com.lkm.elogsheet.common.Constants;
+import com.lkm.elogsheet.utils.CommonUtil;
 import com.lkm.elogsheet.models.User;
 import com.lkm.elogsheet.services.DBService;
 import com.lkm.elogsheet.services.ReplicationService;
+import com.lkm.elogsheet.utils.Constants;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         dbService.initCouchbaseLite(context);
 
         ReplicationService replService=new ReplicationService();
-        replService.StartReplication();
+        //replService.startReplication();
 
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
         TextView linkRegister = (TextView) findViewById(R.id.linkRegister);

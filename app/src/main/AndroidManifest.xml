@@ -13,8 +13,16 @@
         android:theme="@style/Theme.Elogsheet"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".controllers.HomeActivity"
+            android:name=".controllers.HelpActivity"
             android:exported="false" />
+        <activity
+            android:name=".controllers.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.HomeActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".controllers.LaunchActivity"
             android:exported="true"

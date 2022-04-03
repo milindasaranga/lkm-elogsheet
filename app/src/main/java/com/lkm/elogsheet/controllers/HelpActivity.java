@@ -3,6 +3,7 @@ package com.lkm.elogsheet.controllers;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import com.lkm.elogsheet.R;
 
 public class HelpActivity extends AppCompatActivity {
 
