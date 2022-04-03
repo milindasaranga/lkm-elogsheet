@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Elogsheet"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".controllers.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".controllers.HelpActivity"
             android:exported="false" />
         <activity
