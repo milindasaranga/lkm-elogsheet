@@ -18,6 +18,14 @@ tools:showIn="navigation_view">
                 android:icon="@drawable/ic_account_box_black_24dp"
                 android:title="Profile" />
             <item
+                android:id="@+id/nav_incident"
+                android:icon="@drawable/ic_account_box_black_24dp"
+                android:title="Incident" />
+            <item
+                android:id="@+id/nav_incident_log"
+                android:icon="@drawable/ic_account_box_black_24dp"
+                android:title="Incident Log" />
+            <item
                 android:id="@+id/nav_help"
                 android:icon="@drawable/ic_security_black_24dp"
                 android:title="Help" />
