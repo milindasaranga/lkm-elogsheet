@@ -1,9 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".controllers.ProfileActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="@color/colorLightGray"
+tools:context=".controllers.ProfileActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:background="@color/backgroundDefault">
+
+
+                <TextView
+                    android:id="@+id/txtFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:text="John Doe"/>
+
+                <ImageButton
+                    android:id="@+id/btnEditProfilePicture"
+                    android:layout_height="30dip"
+                    android:layout_width="30dip"
+                    android:layout_gravity="right"
+                    android:background="@drawable/ic_add_a_photo_black_24dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:padding="15dp"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:background="@color/backgroundDefault">
+
+                <TextView
+                    android:id="@+id/profileHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="25sp"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="Your Information" />
+
+
+                <TextView
+                    android:id="@+id/txtClientFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="FirstName: Epsiyan"/>
+
+                <TextView
+                    android:id="@+id/txtClientLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Las name: Admin"/>
+                <TextView
+                    android:id="@+id/txtClientEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Email: epsiyan.admin@gmail.com"/>
+                <TextView
+                    android:id="@+id/txtClientPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Phone: 0711231231"/>
+                <TextView
+                    android:id="@+id/txtDesignation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Designation No: Mechanic"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

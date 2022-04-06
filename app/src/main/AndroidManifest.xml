@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Elogsheet"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".controllers.IncidentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.IncidentActionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controllers.IncidentLogActivity"
+            android:exported="false" />
+        <activity
             android:name=".controllers.ProfileActivity"
             android:exported="false" />
         <activity
