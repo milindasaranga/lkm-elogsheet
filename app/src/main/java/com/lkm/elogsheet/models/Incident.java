@@ -4,6 +4,15 @@ public class Incident extends ModelBase{
     public String incidentId;
     public String description;
     public boolean isUrgent;
+    public String availableDate;
+
+    public String getAvailableDate() {
+        return availableDate;
+    }
+
+    public void setAvailableDate(String availableDate) {
+        this.availableDate = availableDate;
+    }
 
     public String getIncidentId() {
         return incidentId;

@@ -1,2 +1,4 @@
-package com.lkm.elogsheet.services;public class IncidentService {
+package com.lkm.elogsheet.services;
+
+public class IncidentService {
 }
