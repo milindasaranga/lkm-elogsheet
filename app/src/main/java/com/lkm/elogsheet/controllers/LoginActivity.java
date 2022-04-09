@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         dbService.initCouchbaseLite(context);
 
         ReplicationService replService=new ReplicationService();
-        //replService.startReplication();
+        replService.startReplication();
 
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
         TextView linkRegister = (TextView) findViewById(R.id.linkRegister);

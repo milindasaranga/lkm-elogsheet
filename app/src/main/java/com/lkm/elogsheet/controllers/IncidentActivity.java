@@ -2,6 +2,7 @@ package com.lkm.elogsheet.controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 
 import com.lkm.elogsheet.R;
 import com.lkm.elogsheet.models.Incident;
+import com.lkm.elogsheet.services.IncidentService;
 
 public class IncidentActivity extends AppCompatActivity {
 
@@ -32,13 +34,18 @@ public class IncidentActivity extends AppCompatActivity {
 
     public void saveIncidentDetails() {
         try {
+            Context context = getApplicationContext();
             Incident incident=new Incident();
             incident.description=incidentDesc.getText().toString();
 
-
+            IncidentService incidentService=new IncidentService();
+            incidentService.saveIncidentDetails(incident,getApplicationContext());
 
         }catch (Exception e){
-
+            e.printStackTrace();
         }
     }
+
+
+
 }

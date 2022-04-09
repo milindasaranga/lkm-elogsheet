@@ -2,9 +2,12 @@ package com.lkm.elogsheet.models;
 
 public class Audit {
 
-    public String getCreatedBy() {
-        return createdBy;
-    }
+    public String createdBy;
+    public String createdDate;
+    public String updatedBy;
+    public String updatedDate;
+
+    public String getCreatedBy() {  return createdBy; }
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
@@ -34,9 +37,6 @@ public class Audit {
         this.updatedDate = updatedDate;
     }
 
-    public String createdBy;
-    public String createdDate;
-    public String updatedBy;
-    public String updatedDate;
+
 
 }

@@ -1,9 +1,32 @@
 package com.lkm.elogsheet.utils;
 
+import android.content.Context;
+
+import com.lkm.elogsheet.controllers.LoginActivity;
+import com.lkm.elogsheet.models.Audit;
+
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.content.Context;
+
 public class CommonUtil {
+
+    public static Audit getAudit(Audit audit, String loggedUserId){
+
+        if(audit == null){
+            audit = new Audit();
+            audit.setCreatedBy(loggedUserId);
+            audit.setCreatedDate(java.time.LocalDateTime.now().toString());
+        }else{
+            audit.setUpdatedBy(loggedUserId);
+            audit.setUpdatedDate(java.time.LocalDateTime.now().toString());
+        }
+        return audit;
+    }
 
     public static boolean isEmptyOrNull(String param) {
         if (param == null || param.trim().equals("")) {
@@ -56,6 +79,12 @@ public class CommonUtil {
         }
 
         return true;
+    }
+
+    public static String getClientID(Context context) {
+        LoginActivity.sharedPreferences = context.getSharedPreferences(Constants.MY_PREFERENCES, Context.MODE_PRIVATE);
+        String clientID = LoginActivity.sharedPreferences.getString(Constants.CLIENT_ID, "");
+        return clientID;
     }
 
 }
