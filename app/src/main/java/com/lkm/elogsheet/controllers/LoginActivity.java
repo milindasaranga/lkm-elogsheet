@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
         TextView linkRegister = (TextView) findViewById(R.id.linkRegister);
 
-        inputEmail = (EditText) findViewById(R.id.email);
+        inputEmail = (EditText) findViewById(R.id.user_id);
         inputPassword = (EditText) findViewById(R.id.password);
         txtLoginError = (TextView) findViewById(R.id.txtLoginError);
 

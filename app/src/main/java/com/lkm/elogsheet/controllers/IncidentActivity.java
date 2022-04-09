@@ -23,8 +23,8 @@ public class IncidentActivity extends AppCompatActivity {
 
         incidentDesc = (EditText)findViewById(R.id.txtIncidentDescription);
 
-        Button btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        Button btnSave = (Button) findViewById(R.id.btnSave);
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveIncidentDetails();
