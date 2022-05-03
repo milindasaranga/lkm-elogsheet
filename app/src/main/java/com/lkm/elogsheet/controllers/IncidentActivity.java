@@ -11,17 +11,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lkm.elogsheet.R;
 import com.lkm.elogsheet.models.Incident;
 import com.lkm.elogsheet.services.IncidentService;
+import com.lkm.elogsheet.utils.CommonUtil;
 import com.lkm.elogsheet.utils.Constants;
 import com.lkm.elogsheet.utils.Messages;
 
 public class IncidentActivity extends AppCompatActivity {
 
     private EditText incidentDesc;
+    private TextView txtError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class IncidentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_incident);
 
         incidentDesc = (EditText)findViewById(R.id.txtIncidentDescription);
+        txtError = (TextView) findViewById(R.id.txtError);
 
         Button btnSave = (Button) findViewById(R.id.btnSave);
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -41,14 +45,16 @@ public class IncidentActivity extends AppCompatActivity {
 
     public void saveIncidentDetails() {
         try {
-            Context context = getApplicationContext();
-            Incident incident=new Incident();
-            incident.description=incidentDesc.getText().toString();
+            if(isValidUserInput()){
+                Context context = getApplicationContext();
+                Incident incident=new Incident();
+                incident.description=incidentDesc.getText().toString();
 
-            IncidentService incidentService=new IncidentService();
-            incidentService.saveIncidentDetails(incident,getApplicationContext());
-            this.raiseIncidentSuccessDialog().show();
-            this.resetFields();
+                IncidentService incidentService=new IncidentService();
+                incidentService.saveIncidentDetails(incident,getApplicationContext());
+                this.raiseIncidentSuccessDialog().show();
+                this.resetFields();
+            }
         }catch (Exception e){
             Toast.makeText(getApplicationContext(), Messages.UNEXPECTED_ERROR, Toast.LENGTH_SHORT).show();
         }
@@ -70,6 +76,14 @@ public class IncidentActivity extends AppCompatActivity {
                 });
 
         return builder.create();
+    }
+
+    public boolean isValidUserInput() {
+        if (CommonUtil.isEmptyOrNull(incidentDesc.getText().toString())) {
+            txtError.setText("Please enter description to place the request");
+            return false;
+        }
+        return true;
     }
 
 

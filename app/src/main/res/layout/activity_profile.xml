@@ -71,20 +71,20 @@ tools:context=".controllers.ProfileActivity">
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:text="FirstName: Epsiyan"/>
+                    android:text="FirstName: Admin"/>
 
                 <TextView
                     android:id="@+id/txtClientLastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:text="Las name: Admin"/>
+                    android:text="Las name: Doe"/>
                 <TextView
                     android:id="@+id/txtClientEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:text="Email: epsiyan.admin@gmail.com"/>
+                    android:text="Email: app.admin@gmail.com"/>
                 <TextView
                     android:id="@+id/txtClientPhone"
                     android:layout_width="match_parent"

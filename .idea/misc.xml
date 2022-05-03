@@ -11,9 +11,11 @@
         <entry key="app/src/main/res/drawable/ic_info_black_24dp.xml" value="0.22962962962962963" />
         <entry key="app/src/main/res/drawable/ic_security_black_24dp.xml" value="0.22962962962962963" />
         <entry key="app/src/main/res/drawable/ic_view_list_black_24dp.xml" value="0.14479166666666668" />
+        <entry key="app/src/main/res/layout/activity_about.xml" value="0.2346014492753623" />
         <entry key="app/src/main/res/layout/activity_help.xml" value="0.23867753623188406" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2708333333333333" />
         <entry key="app/src/main/res/layout/activity_incident.xml" value="0.3375" />
+        <entry key="app/src/main/res/layout/activity_incident_action.xml" value="0.2346014492753623" />
         <entry key="app/src/main/res/layout/activity_launch.xml" value="0.3515625" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.190625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3515625" />

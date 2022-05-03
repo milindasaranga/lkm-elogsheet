@@ -14,5 +14,6 @@
     <color name="colorLightGray">#EEEEEE</color>
     <color name="colorDanger">#F44336</color>
     <color name="colorInverted">#ffffff</color>
+    <color name="colorMediumGray">#777777</color>
     <color name="backgroundDefault">#FFFFFF</color>
 </resources>

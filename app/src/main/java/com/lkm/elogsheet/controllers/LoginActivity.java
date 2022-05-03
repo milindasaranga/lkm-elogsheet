@@ -102,11 +102,11 @@ public class LoginActivity extends AppCompatActivity {
     //validate user input
     public boolean isValidUserInput() {
         if (CommonUtil.isEmptyOrNull(inputEmail.getText().toString())) {
-            txtLoginError.setText("Invalid email or password");
+            txtLoginError.setText("Please enter username to login to the system");
             return false;
         }
         if (CommonUtil.isEmptyOrNull(inputPassword.getText().toString())) {
-            txtLoginError.setText("Invalid email or password");
+            txtLoginError.setText("Please enter password to login to the system");
             return false;
         }
         return true;
